@@ -1,0 +1,251 @@
+			# Assignment : 3 #
+			# Topic : Arrays #
+
+1. Write a program to count a total number of duplicate and unique elements in the given array.
+Sample Input:
+Enter array size: 5
+Array elements are: 2 5 7 2 4
+Sample Output:
+No of duplicate element: 1
+No of unique elements: 3
+
+package new_package;
+import java.util.Scanner;
+public class a_3_q1 {
+
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter the size of array ");
+		int size=sc.nextInt();
+		System.out.println("Enter elements ");
+		int ele=sc.nextInt();
+		int a[]=new int[size];
+		int dupCount=1;
+		
+		for(int i=0; i<size-1; i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		
+		for(int i=0; i<size-1; i++)
+		{
+			for(int j=i+1; j<size; j++)
+			{
+				if(a[i]==a[j])
+				{
+					dupCount=dupCount+1;
+					break;
+				}
+			}
+		
+		}
+		System.out.println("No. of duplicates: "+dupCount);
+		int uniqueCount=0;
+		for(int i=1;i<size-1;i++)
+		{
+			for(int j=1;j<size-1;j++)
+			{
+				if(a[i]==a[j])
+				{
+					uniqueCount=uniqueCount+1;
+					break;
+				}
+			}
+			
+		}
+		System.out.println("No.of unique elements: "+uniqueCount);
+}
+	}
+
+Q2. There are N friends in a group. Each of them has Xi chocolates. Write a Java
+Program to check whether they can share all of these chocolates among themselves
+such that each one of them has equal number of chocolates.
+Input:
+First line contains of a single line of input, an integer N denoting no. of
+friends in the group.
+Next line contains N space separated integers Xi denoting the no.
+chocolates ith friend has.
+Output:
+Output "Yes" if it is possible to share equally else "No" (without " ").
+
+package new_packages;
+import java.util.Scanner;
+
+public class a3_q2 {
+
+	public static void main(String[] args) {
+		double b=0;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of friends ");
+		int n=sc.nextInt();
+		double[] a=new double[n];
+		System.out.println("Enter the number of chocolates");
+		for(int i=0;i<n;i++) {
+			a[i]=sc.nextDouble();
+			b+=a[i];
+		}
+		double div=b/n;
+		int t=(int)div;
+		if(div-t==0) {
+			System.out.println("YES it is possible to share chocolates equally ");
+		}
+		else {
+			System.out.println("No");
+		}
+
+	}
+}
+
+Q3. Consider an array contains both positive and negative numbers in random order.
+Write a Java Program to rearrange the array elements so that all negative numbers
+appear before all positive numbers.
+Input:
+First line contains of a single line of input, an integer N denoting the size
+of an array.
+Next line contains N space separated integers (positive or negative)
+Output:
+Set of negative integers followed by positive integers
+
+package new_packages;
+import java.util.Scanner;
+
+public class a3_q3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of array:");
+		int n=sc.nextInt();
+		System.out.println("Enter elements of array:  ");
+		int[] a=new int[n];
+		for(int i=0;i<n;i++) {
+			a[i]=sc.nextInt();
+		}
+		for(int i=0;i<n;i++) {
+			for(int j=i+1;j<n;j++){
+				if(a[i]>0 && a[j]<0) {
+					int s=a[i];
+					a[i]=a[j];
+					a[j]=s;
+				}
+			}
+		}
+		System.out.println(" Array after re-arrangement:");
+		for(int i=0;i<n;i++) {
+			System.out.print(a[i]+" ");
+		}
+		
+
+	}
+
+}
+
+Q4.  Arun and Naveen are playing a dice game. Each one will get one chance to roll the
+dice. Dice values are recorded in two different tables. After 10 turns, the winner has to
+be decided by calculating each value recorded in each table.
+Sample Input:
+Arun Dice Choice: 5, 6, 2, 1, 2, 5, 6, 3, 4, 2
+Naveen Choice: 5, 5, 4, 3, 3, 5, 6, 2, 1, 1
+Sample Output:
+Naveen Wins!!!
+
+package new_packages;
+import java.util.Scanner;
+public class a3_q4 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Arun Dice Choice:");
+		int[] a=new int[10];
+		for(int i=0;i<10;i++) {
+			a[i]=sc.nextInt();
+		}
+		System.out.println("Naveen Dice Choice:");
+		int[] n=new int[10];
+	
+		for(int i=0;i<10;i++) {
+			n[i]=sc.nextInt();
+		}
+		int temp1=0;
+		int temp2=0;
+		for(int i=0;i<10;i++) {
+			temp1+=a[i];
+			temp2+=n[i];
+		}
+		if(temp1<temp2) {
+			System.out.println("Arun Wins");
+		}
+		else if(temp1>temp2){
+			System.out.println("Naveen Wins");
+		}
+		else {
+			System.out.println("Draw");
+		}
+	}
+}
+
+Q5.Write a program to find the minimum and maximum element of each row and
+column in the given two dimensional arrays.
+Sample Input:
+Enter row size: 3
+Enter column size:
+3
+Enter 3 * 3 array elements are:
+4
+1
+2
+5
+3
+6
+3
+7
+8
+Sample Output:
+Given Array is:
+4 1 2
+5 3 6
+3 7 8
+
+package new_packages;
+import java.util.Scanner;
+public class a3_q5 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the length of row ");
+		int r=sc.nextInt();
+		System.out.println("Enter the length of coloumn ");
+		int c=sc.nextInt();
+		int[][] a=new int[r][c];
+		System.out.println("Enter the elements of array");
+		for(int i=0;i<r;i++) {
+			for(int j=0;j<c;j++) {
+				a[i][j]=sc.nextInt();
+			}
+		}
+		for(int i=0;i<r;i++) {
+			int max=0,min=999999999;
+			for(int j=0;j<c;j++) {
+				if (a[i][j]>max) {
+					max=a[i][j];
+				}
+				if(a[i][j]<min) {
+					min=a[i][j];
+				}
+			}
+	System.out.println("The minimum and maximum element of "+(i+1)+"th row is "+min+","+max);
+		}
+		for(int j=0;j<c;j++) {
+			int max=0,min=999999999;
+			for(int i=0;i<c;i++) {
+				if (a[i][j]>max) {
+					max=a[i][j];
+				}
+				if(a[i][j]<min) {
+					min=a[i][j];
+				}
+			}
+	System.out.println("The minimum and maximum element of "+(j+1)+"rd column is "+min+","+max);
+		}
+
+	}
+
+}
